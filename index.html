@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faiza Tyre House – Kinniya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue:    #0a4fa8;
+      --blue2:   #1367d4;
+      --sky:     #e8f3ff;
+      --accent:  #f5a623;
+      --dark:    #0b1e3d;
+      --white:   #ffffff;
+      --grey:    #f4f7fc;
+      --text:    #1c2e4a;
+      --muted:   #6b82a0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(10,79,168,0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(10,79,168,0.35);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-logo .tyre-icon {
+      width: 36px; height: 36px;
+      border: 4px solid var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+
+    .nav-logo .tyre-icon::after {
+      content: '';
+      width: 12px; height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--dark) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 60%, #1a7fd4 100%);
+      display: flex; align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 700px 500px at 80% 50%, rgba(30,120,220,0.25) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='28' stroke='rgba(255,255,255,0.04)' stroke-width='2' fill='none'/%3E%3Ccircle cx='30' cy='30' r='16' stroke='rgba(255,255,255,0.04)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-size: cover, 60px 60px;
+    }
+
+    /* big decorative tyre */
+    .hero-tyre {
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      border: 60px solid rgba(255,255,255,0.06);
+      animation: spin 25s linear infinite;
+    }
+
+    .hero-tyre::before {
+      content: '';
+      position: absolute; inset: 30px;
+      border-radius: 50%;
+      border: 30px solid rgba(245,166,35,0.12);
+    }
+
+    @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+    .hero-content { position: relative; z-index: 2; max-width: 640px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,166,35,0.15);
+      border: 1px solid rgba(245,166,35,0.4);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      font-weight: 300;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-actions {
+      margin-top: 2.5rem;
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(245,166,35,0.4);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.5); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .hero-stats {
+      margin-top: 3.5rem;
+      display: flex; gap: 2.5rem;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    .stat-item {}
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue2);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--dark);
+      line-height: 1.05;
+      letter-spacing: 1px;
+    }
+
+    .section-title span { color: var(--blue2); }
+
+    .section-desc {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--grey); }
+
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-desc { margin: 1rem auto 0; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      border: 1px solid rgba(10,79,168,0.08);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--blue2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(10,79,168,0.12); border-color: rgba(10,79,168,0.15); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 60px; height: 60px;
+      background: var(--sky);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.4rem;
+      font-size: 1.8rem;
+    }
+
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      margin-top: 1.2rem;
+      display: inline-block;
+      background: var(--sky);
+      color: var(--blue2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-box {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--dark) 100%);
+      border-radius: 20px;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-img-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='38' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='24' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='10' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-size: 80px 80px;
+    }
+
+    .about-big-tyre {
+      font-size: 9rem;
+      opacity: 0.18;
+      position: absolute;
+    }
+
+    .about-text-over {
+      position: relative; z-index: 2;
+      text-align: center;
+    }
+
+    .about-text-over .big-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .about-text-over .big-label {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .about-badge-float {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: var(--accent);
+      border-radius: 14px;
+      padding: 1.2rem 1.6rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(245,166,35,0.35);
+    }
+
+    .about-badge-float .n { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--dark); line-height: 1; }
+    .about-badge-float .l { font-size: 0.7rem; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 1px; }
+
+    .about-text {}
+
+    .about-list {
+      margin-top: 2rem;
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.9rem;
+    }
+
+    .about-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .about-list li .check {
+      width: 22px; height: 22px; min-width: 22px;
+      background: var(--sky);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    .about-list li .check svg { width: 12px; height: 12px; stroke: var(--blue2); fill: none; stroke-width: 2.5; }
+
+    /* ── WHY CHOOSE US ── */
+    #why {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 100%);
+      text-align: center;
+    }
+
+    #why .section-label { color: var(--accent); }
+    #why .section-title { color: var(--white); }
+    #why .section-title span { color: var(--accent); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .why-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+
+    .why-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+
+    .why-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--grey); }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .info-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      border: 1px solid rgba(10,79,168,0.08);
+      transition: box-shadow 0.2s;
+    }
+
+    .info-card:hover { box-shadow: 0 8px 24px rgba(10,79,168,0.1); }
+
+    .info-icon {
+      width: 46px; height: 46px; min-width: 46px;
+      background: var(--sky);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .info-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .info-value { font-size: 0.95rem; font-weight: 600; color: var(--dark); }
+    .info-value a { color: var(--blue2); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    .hours-grid { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.3rem; }
+    .hour-row { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--text); }
+    .hour-row .closed { color: #e05; font-weight: 600; }
+    .hour-row .open { color: #0a8a2f; font-weight: 600; }
+
+    .map-box {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(10,79,168,0.1);
+      box-shadow: 0 8px 30px rgba(10,79,168,0.08);
+    }
+
+    .map-box iframe {
+      width: 100%; height: 100%; min-height: 400px;
+      border: none;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2.5rem 5%;
+      font-size: 0.88rem;
+    }
+
+    footer strong { color: var(--accent); }
+
+    footer .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .footer-logo span { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+
+      #home { padding: 120px 4% 80px; }
+      .hero-tyre { width: 280px; height: 280px; right: -60px; }
+
+      #about {
+        grid-template-columns: 1fr;
+        padding: 60px 5%;
+        max-width: 100%;
+      }
+      .about-badge-float { bottom: 10px; right: 10px; }
+
+      .contact-wrap { grid-template-columns: 1fr; }
+      .map-box iframe { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="tyre-icon"></div>
+    FAIZA <span>&nbsp;TYRE</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-tyre"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Rated 4.8 / 5 — Kinniya's Trusted Tyre Shop</div>
+    <h1 class="hero-title">FAIZA<br><span>TYRE</span><br>HOUSE</h1>
+    <p class="hero-sub">Your trusted destination for premium tyre sales, expert tyre repair, and nitrogen air filling — right in the heart of Kinniya, Sri Lanka.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-outline">Find Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">4.8★</div>
+        <div class="stat-label">Customer Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Services</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6AM</div>
+        <div class="stat-label">Opens Daily</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our <span>Services</span></h2>
+    <p class="section-desc">We provide quality tyre services at affordable prices. Whatever your vehicle needs — we've got you covered.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🛞</div>
+      <div class="service-name">Tyre Sales</div>
+      <p class="service-desc">We stock a wide range of tyres for motorcycles, cars, vans, and heavy vehicles. Quality brands at the most competitive prices in Kinniya.</p>
+      <span class="service-tag">All Vehicle Types</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <div class="service-name">Tyre Repair</div>
+      <p class="service-desc">Fast and reliable tyre puncture repairs. Our experienced team handles all types of tyre damage to get you back on the road quickly and safely.</p>
+      <span class="service-tag">Quick Turnaround</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💨</div>
+      <div class="service-name">N2 Air Filling</div>
+      <p class="service-desc">Professional nitrogen (N2) air filling for all vehicles. Nitrogen maintains tyre pressure longer, improves fuel efficiency, and extends tyre life.</p>
+      <span class="service-tag">Affordable Price</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:90px 5%;">
+  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+    <div class="about-visual">
+      <div class="about-img-box">
+        <div class="about-big-tyre">🛞</div>
+        <div class="about-text-over">
+          <div class="big-num">4.8</div>
+          <div class="big-label">★ Google Rating</div>
+        </div>
+      </div>
+      <div class="about-badge-float">
+        <div class="n">N₂</div>
+        <div class="l">Air Filling<br>Available</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Kinniya's <span>Trusted</span> Tyre Expert</h2>
+      <p class="section-desc">Faiza Tyre House is a well-established tyre shop located on Tampalakamam-Kinniyai Road, Kinniya, Sri Lanka. We are known for our honest service, reasonable pricing, and the dedication we bring to every customer.</p>
+      <ul class="about-list">
+        <li>
+          <span class="check">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Serving the Kinniya community with quality and care
+        </li>
+        <li>
+          <span class="check">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Affordable and transparent pricing — no hidden charges
+        </li>
+        <li>
+          <span class="check">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Nitrogen air filling available for all vehicle types
+        </li>
+        <li>
+          <span class="check">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Highly rated by customers — 4.8 stars on Google
+        </li>
+        <li>
+          <span class="check">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Open 6 days a week from 6:00 AM to 6:00 PM
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="section-label">Why Faiza?</div>
+  <h2 class="section-title">Why <span>Choose Us</span></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <div class="why-title">Cheapest Price</div>
+      <p class="why-desc">We offer the most competitive rates in the Kinniya area without compromising on quality.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Fast Service</div>
+      <p class="why-desc">We respect your time. Most repairs and services are completed quickly so you're back on the road fast.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Top Rated</div>
+      <p class="why-desc">Our 4.8-star Google rating reflects the trust and satisfaction of our loyal customers.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌿</div>
+      <div class="why-title">N2 Advantage</div>
+      <p class="why-desc">Nitrogen filling keeps your tyres at optimal pressure longer, improving safety and fuel economy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Contact &amp; <span>Location</span></h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-value">Tampalakamam-Kinniyai Rd,<br>Kinniya, Sri Lanka</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label">Phone</div>
+            <div class="info-value"><a href="tel:+94774665366">+94 77 466 5366</a></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Opening Hours</div>
+            <div class="hours-grid">
+              <div class="hour-row"><span>Monday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+              <div class="hour-row"><span>Tuesday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+              <div class="hour-row"><span>Wednesday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+              <div class="hour-row"><span>Thursday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+              <div class="hour-row"><span>Friday</span><span class="closed">Closed</span></div>
+              <div class="hour-row"><span>Saturday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+              <div class="hour-row"><span>Sunday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.!2d81.1692255!3d8.4827294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afba34d228a80e9%3A0x7c4ecdcd22d99a61!2sFaiza%20tyre%20house!5e0!3m2!1sen!2slk!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FAIZA <span>TYRE</span> HOUSE</div>
+  <p>Tampalakamam-Kinniyai Rd, Kinniya, Sri Lanka &nbsp;|&nbsp; <a href="tel:+94774665366" style="color:var(--accent);">+94 77 466 5366</a></p>
+  <p style="margin-top:0.75rem;">© 2025 Faiza Tyre House. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
