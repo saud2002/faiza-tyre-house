@@ -1,790 +1,1358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Faiza Tyre House – Kinniya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faiza Tyre House - Premium Automotive Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --blue:    #0a4fa8;
-      --blue2:   #1367d4;
-      --sky:     #e8f3ff;
-      --accent:  #f5a623;
-      --dark:    #0b1e3d;
-      --white:   #ffffff;
-      --grey:    #f4f7fc;
-      --text:    #1c2e4a;
-      --muted:   #6b82a0;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #E63946;
+      --yellow: #FFD60A;
+      --dark: #0D1117;
+      --darker: #010409;
+      --gray: #1C2128;
+      --light-gray: #2D333B;
+      --blue: #00D9FF;
+      --white: #FFFFFF;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--darker);
+      color: var(--white);
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* Navigation */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 72px;
-      background: rgba(10,79,168,0.97);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(10,79,168,0.35);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(13, 17, 23, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(230, 57, 70, 0.2);
     }
 
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+ .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      animation: rotateWheel 3s linear infinite;
+      background: 
+        radial-gradient(circle at 30% 30%, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+      box-shadow: 
+        inset -3px -3px 8px rgba(255, 255, 255, 0.1),
+        inset 3px 3px 8px rgba(0, 0, 0, 0.8),
+        0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Tyre outer ring (rubber) */
+    .logo-circle::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: 
+        repeating-conic-gradient(
+          from 0deg,
+          #1a1a1a 0deg 8deg,
+          #2d2d2d 8deg 10deg,
+          #1a1a1a 10deg 18deg,
+          #2d2d2d 18deg 20deg,
+          #1a1a1a 20deg 28deg,
+          #2d2d2d 28deg 30deg,
+          #1a1a1a 30deg 38deg,
+          #2d2d2d 38deg 40deg,
+          #1a1a1a 40deg 48deg,
+          #2d2d2d 48deg 50deg,
+          #1a1a1a 50deg 58deg,
+          #2d2d2d 58deg 60deg
+        );
+      border: 3px solid #0a0a0a;
+      box-shadow: 
+        inset 0 0 10px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(230, 57, 70, 0.4),
+        0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Rim spokes */
+    .logo-circle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      height: 70%;
+      transform: translate(-50%, -50%);
+      background: 
+        conic-gradient(
+          from 0deg,
+          transparent 0deg 30deg,
+          var(--red) 30deg 32deg,
+          #ff6b77 32deg 34deg,
+          var(--red) 34deg 36deg,
+          transparent 36deg 66deg,
+          var(--red) 66deg 68deg,
+          #ff6b77 68deg 70deg,
+          var(--red) 70deg 72deg,
+          transparent 72deg 102deg,
+          var(--red) 102deg 104deg,
+          #ff6b77 104deg 106deg,
+          var(--red) 106deg 108deg,
+          transparent 108deg 138deg,
+          var(--red) 138deg 140deg,
+          #ff6b77 140deg 142deg,
+          var(--red) 142deg 144deg,
+          transparent 144deg 174deg,
+          var(--red) 174deg 176deg,
+          #ff6b77 176deg 178deg,
+          var(--red) 178deg 180deg,
+          transparent 180deg 210deg,
+          var(--red) 210deg 212deg,
+          #ff6b77 212deg 214deg,
+          var(--red) 214deg 216deg,
+          transparent 216deg 246deg,
+          var(--red) 246deg 248deg,
+          #ff6b77 248deg 250deg,
+          var(--red) 250deg 252deg,
+          transparent 252deg 282deg,
+          var(--red) 282deg 284deg,
+          #ff6b77 284deg 286deg,
+          var(--red) 286deg 288deg,
+          transparent 288deg 318deg,
+          var(--red) 318deg 320deg,
+          #ff6b77 320deg 322deg,
+          var(--red) 322deg 324deg,
+          transparent 324deg 354deg,
+          var(--red) 354deg 356deg,
+          #ff6b77 356deg 358deg,
+          var(--red) 358deg 360deg
+        );
+      border-radius: 50%;
+      box-shadow: 
+        inset 0 0 5px rgba(230, 57, 70, 0.5),
+        0 0 10px rgba(230, 57, 70, 0.3);
+    }
+
+    /* Center hub cap */
+    .logo-circle .hub {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      background: 
+        radial-gradient(circle at 35% 35%, 
+          #ff6b77 0%, 
+          var(--red) 40%, 
+          #b82835 100%
+        );
+      border-radius: 50%;
+      border: 2px solid #8a1f2a;
+      box-shadow: 
+        inset -1px -1px 3px rgba(255, 255, 255, 0.3),
+        inset 1px 1px 3px rgba(0, 0, 0, 0.5),
+        0 0 8px rgba(230, 57, 70, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: var(--white);
       letter-spacing: 2px;
-      display: flex; align-items: center; gap: 10px;
     }
 
-    .nav-logo span {
-      color: var(--accent);
+    .logo-text span {
+      color: var(--red);
     }
 
-    .nav-logo .tyre-icon {
-      width: 36px; height: 36px;
-      border: 4px solid var(--accent);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
+    @keyframes rotateWheel {
+      to { transform: rotate(360deg); }
     }
 
-    .nav-logo .tyre-icon::after {
-      content: '';
-      width: 12px; height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
+    .nav-menu {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      align-items: center;
     }
 
-    .nav-links {
-      display: flex; gap: 2rem; list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
+    .nav-menu a {
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      position: relative;
+      text-transform: uppercase;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-
-    .nav-cta {
-      background: var(--accent);
-      color: var(--dark) !important;
-      padding: 8px 20px;
-      border-radius: 6px;
-      font-weight: 600 !important;
+    .nav-menu a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s;
     }
 
-    /* ── HERO ── */
-    #home {
+    .nav-menu a:hover {
+      color: var(--red);
+    }
+
+    .nav-menu a:hover::before {
+      width: 100%;
+    }
+
+    .nav-btn {
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, var(--red), #FF4757);
+      border: none;
+      border-radius: 4px;
+      color: var(--white);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .nav-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-btn:hover::before {
+      left: 100%;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 60%, #1a7fd4 100%);
-      display: flex; align-items: center;
-      padding: 120px 5% 80px;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 60px;
+      position: relative;
+      overflow: hidden;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(230, 57, 70, 0.15), transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 217, 255, 0.1), transparent 50%),
+        var(--darker);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(230, 57, 70, 0.03) 2px,
+          rgba(230, 57, 70, 0.03) 4px
+        );
+      animation: scanlines 10s linear infinite;
+    }
+
+    @keyframes scanlines {
+      from { transform: translateY(0); }
+      to { transform: translateY(20px); }
+    }
+
+    .speedometer {
+      position: absolute;
+      right: -200px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 700px;
+      height: 700px;
+      border: 40px solid rgba(230, 57, 70, 0.1);
+      border-radius: 50%;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .speedometer::before {
+      content: '';
+      position: absolute;
+      inset: 60px;
+      border: 20px solid rgba(255, 214, 10, 0.1);
+      border-radius: 50%;
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        transform: translateY(-50%) scale(1);
+        opacity: 0.5;
+      }
+      50% { 
+        transform: translateY(-50%) scale(1.05);
+        opacity: 0.7;
+      }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(230, 57, 70, 0.1);
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      border-left: 4px solid var(--red);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      animation: slideRight 0.8s ease-out;
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-label::before {
+      content: '◆';
+      color: var(--red);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideRight 1s 0.2s ease-out both;
+    }
+
+    .highlight {
+      display: block;
+      background: linear-gradient(135deg, var(--red), var(--yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(230, 57, 70, 0.5);
+    }
+
+    .hero-desc {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 3rem;
+      font-weight: 500;
+      animation: slideRight 1s 0.4s ease-out both;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+      animation: slideRight 1s 0.6s ease-out both;
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(230, 57, 70, 0.05));
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      border-left: 4px solid var(--red);
+      padding: 1.5rem;
       position: relative;
       overflow: hidden;
     }
 
-    #home::before {
+    .stat-box::before {
       content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 700px 500px at 80% 50%, rgba(30,120,220,0.25) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='28' stroke='rgba(255,255,255,0.04)' stroke-width='2' fill='none'/%3E%3Ccircle cx='30' cy='30' r='16' stroke='rgba(255,255,255,0.04)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-      background-size: cover, 60px 60px;
-    }
-
-    /* big decorative tyre */
-    .hero-tyre {
       position: absolute;
-      right: -80px; top: 50%;
-      transform: translateY(-50%);
-      width: 520px; height: 520px;
-      border-radius: 50%;
-      border: 60px solid rgba(255,255,255,0.06);
-      animation: spin 25s linear infinite;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), transparent);
+      animation: shimmer 2s infinite;
     }
 
-    .hero-tyre::before {
-      content: '';
-      position: absolute; inset: 30px;
-      border-radius: 50%;
-      border: 30px solid rgba(245,166,35,0.12);
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
-
-    @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
-
-    .hero-content { position: relative; z-index: 2; max-width: 640px; }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(245,166,35,0.15);
-      border: 1px solid rgba(245,166,35,0.4);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 8vw, 6.5rem);
-      color: var(--white);
-      line-height: 0.95;
-      letter-spacing: 2px;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-
-    .hero-title span { color: var(--accent); }
-
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.7;
-      font-weight: 300;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-
-    .hero-actions {
-      margin-top: 2.5rem;
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--dark);
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(245,166,35,0.4);
-    }
-
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.5); }
-
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,0.4);
-      color: var(--white);
-      padding: 12px 30px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
-
-    .hero-stats {
-      margin-top: 3.5rem;
-      display: flex; gap: 2.5rem;
-      animation: fadeUp 0.7s 0.4s ease both;
-    }
-
-    .stat-item {}
 
     .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem;
-      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--red);
       line-height: 1;
+      margin-bottom: 0.5rem;
     }
 
     .stat-label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-top: 2px;
+      font-weight: 600;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      animation: slideRight 1s 0.8s ease-out both;
     }
 
-    /* ── SECTION BASE ── */
-    section { padding: 90px 5%; }
-
-    .section-label {
-      font-size: 0.75rem;
+    .btn {
+      padding: 1.2rem 3rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--blue2);
-      margin-bottom: 0.75rem;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      color: var(--dark);
-      line-height: 1.05;
-      letter-spacing: 1px;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), #FF4757);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
     }
 
-    .section-title span { color: var(--blue2); }
-
-    .section-desc {
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 540px;
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
     }
 
-    /* ── SERVICES ── */
-    #services { background: var(--grey); }
+    .btn-primary:hover::before {
+      transform: translateX(100%);
+    }
 
-    .services-header { text-align: center; margin-bottom: 3.5rem; }
-    .services-header .section-desc { margin: 1rem auto 0; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(230, 57, 70, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--red);
+      background: rgba(230, 57, 70, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 5%;
+      background: var(--dark);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-tag {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
     .service-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.2rem 2rem;
-      border: 1px solid rgba(10,79,168,0.08);
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      background: linear-gradient(135deg, rgba(28, 33, 40, 0.8), rgba(28, 33, 40, 0.4));
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      padding: 3rem 2.5rem;
       position: relative;
       overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .service-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--blue2));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.1), transparent);
+      transition: left 0.6s;
     }
 
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(10,79,168,0.12); border-color: rgba(10,79,168,0.15); }
-    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover::before {
+      left: 100%;
+    }
 
-    .service-icon {
-      width: 60px; height: 60px;
-      background: var(--sky);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.4rem;
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, var(--red), var(--yellow));
+      transition: height 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(230, 57, 70, 0.5);
+      box-shadow: 0 20px 60px rgba(230, 57, 70, 0.3);
+    }
+
+    .service-card:hover::after {
+      height: 100%;
+    }
+
+    .service-icon-box {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.05));
+      border: 2px solid rgba(230, 57, 70, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover .service-icon-box {
+      transform: rotate(5deg) scale(1.1);
+      border-color: var(--red);
+      box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+    }
+
+    .service-title {
+      font-family: 'Orbitron', sans-serif;
       font-size: 1.8rem;
-    }
-
-    .service-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.35rem;
       font-weight: 700;
-      color: var(--dark);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
     }
 
     .service-desc {
-      font-size: 0.92rem;
-      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .service-features li::before {
+      content: '▸';
+      color: var(--red);
+      font-size: 1.2rem;
+    }
+
+    .service-badge {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: rgba(230, 57, 70, 0.15);
+      border: 1px solid rgba(230, 57, 70, 0.4);
+      border-radius: 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Performance Section */
+    .performance {
+      padding: 100px 5%;
+      background: var(--darker);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .performance::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(circle, rgba(230, 57, 70, 0.1), transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .performance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 4rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .perf-card {
+      background: linear-gradient(135deg, rgba(28, 33, 40, 0.6), rgba(28, 33, 40, 0.3));
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .perf-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .perf-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--red);
+    }
+
+    .perf-card:hover::before {
+      opacity: 1;
+    }
+
+    .perf-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(230, 57, 70, 0.5));
+    }
+
+    .perf-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    .perf-desc {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.7;
     }
 
-    .service-tag {
-      margin-top: 1.2rem;
-      display: inline-block;
-      background: var(--sky);
-      color: var(--blue2);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 50px;
+    /* Contact Section */
+    .contact {
+      padding: 100px 5%;
+      background: var(--dark);
     }
 
-    /* ── ABOUT ── */
-    #about {
-      background: var(--white);
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 4rem;
+      max-width: 1400px;
+      margin: 4rem auto 0;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(28, 33, 40, 0.8), rgba(28, 33, 40, 0.4));
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      border-left: 4px solid var(--red);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateX(10px);
+      border-color: var(--red);
+      box-shadow: 0 10px 40px rgba(230, 57, 70, 0.2);
+    }
+
+    .info-header {
+      display: flex;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .about-visual {
-      position: relative;
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.05));
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
     }
 
-    .about-img-box {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--dark) 100%);
-      border-radius: 20px;
-      aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-img-box::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='38' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='24' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='10' stroke='rgba(255,255,255,0.06)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-      background-size: 80px 80px;
-    }
-
-    .about-big-tyre {
-      font-size: 9rem;
-      opacity: 0.18;
-      position: absolute;
-    }
-
-    .about-text-over {
-      position: relative; z-index: 2;
-      text-align: center;
-    }
-
-    .about-text-over .big-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .about-text-over .big-label {
-      color: var(--accent);
+    .info-label {
+      font-family: 'Orbitron', sans-serif;
       font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 2px;
+      color: var(--red);
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .about-badge-float {
-      position: absolute;
-      bottom: -20px; right: -20px;
-      background: var(--accent);
-      border-radius: 14px;
-      padding: 1.2rem 1.6rem;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(245,166,35,0.35);
-    }
-
-    .about-badge-float .n { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--dark); line-height: 1; }
-    .about-badge-float .l { font-size: 0.7rem; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 1px; }
-
-    .about-text {}
-
-    .about-list {
-      margin-top: 2rem;
-      list-style: none;
-      display: flex; flex-direction: column; gap: 0.9rem;
-    }
-
-    .about-list li {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--text);
+    .info-value {
+      font-size: 1.2rem;
+      font-weight: 600;
       line-height: 1.6;
     }
 
-    .about-list li .check {
-      width: 22px; height: 22px; min-width: 22px;
-      background: var(--sky);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 1px;
+    .info-value a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
     }
 
-    .about-list li .check svg { width: 12px; height: 12px; stroke: var(--blue2); fill: none; stroke-width: 2.5; }
-
-    /* ── WHY CHOOSE US ── */
-    #why {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 100%);
-      text-align: center;
+    .info-value a:hover {
+      color: var(--red);
     }
 
-    #why .section-label { color: var(--accent); }
-    #why .section-title { color: var(--white); }
-    #why .section-title span { color: var(--accent); }
+    .hours-table {
+      margin-top: 1rem;
+      width: 100%;
+    }
 
-    .why-grid {
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 1.05rem;
+    }
+
+    .day {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .time {
+      color: #4CAF50;
+      font-weight: 600;
+    }
+
+    .closed {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .map-container {
+      background: var(--gray);
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      overflow: hidden;
+      height: 100%;
+      min-height: 600px;
+      position: relative;
+    }
+
+    .map-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--red);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .map-container:hover::before {
+      opacity: 0.3;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(0.3) contrast(1.2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--darker);
+      padding: 4rem 5%;
+      border-top: 1px solid rgba(230, 57, 70, 0.2);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 3rem auto 0;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
     }
 
-    .why-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      padding: 2rem 1.5rem;
-      transition: background 0.25s, transform 0.25s;
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    .why-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .footer-logo-circle {
+      width: 60px;
+      height: 60px;
+      border: 3px solid var(--red);
+      border-radius: 50%;
+      position: relative;
+    }
 
-    .why-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .footer-logo-circle::before,
+    .footer-logo-circle::after {
+      content: '';
+      position: absolute;
+      background: var(--red);
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-    .why-title {
-      font-family: 'Barlow Condensed', sans-serif;
+    .footer-logo-circle::after {
+      transform: translateX(-50%) rotate(90deg);
+    }
+
+    .footer-brand-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .footer-brand-text span {
+      color: var(--red);
+    }
+
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .footer-title {
+      font-family: 'Orbitron', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--red);
+      letter-spacing: 1px;
     }
 
-    .why-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
-    /* ── CONTACT ── */
-    #contact { background: var(--grey); }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      max-width: 1100px;
+    .footer-links a::before {
+      content: '▸';
+      color: var(--red);
+      transition: transform 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 10px;
+    }
+
+    .footer-links a:hover::before {
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
       margin: 3rem auto 0;
-    }
-
-    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-
-    .info-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 1.5rem;
-      display: flex; align-items: flex-start; gap: 1rem;
-      border: 1px solid rgba(10,79,168,0.08);
-      transition: box-shadow 0.2s;
-    }
-
-    .info-card:hover { box-shadow: 0 8px 24px rgba(10,79,168,0.1); }
-
-    .info-icon {
-      width: 46px; height: 46px; min-width: 46px;
-      background: var(--sky);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-
-    .info-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
-    .info-value { font-size: 0.95rem; font-weight: 600; color: var(--dark); }
-    .info-value a { color: var(--blue2); text-decoration: none; }
-    .info-value a:hover { text-decoration: underline; }
-
-    .hours-grid { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.3rem; }
-    .hour-row { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--text); }
-    .hour-row .closed { color: #e05; font-weight: 600; }
-    .hour-row .open { color: #0a8a2f; font-weight: 600; }
-
-    .map-box {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(10,79,168,0.1);
-      box-shadow: 0 8px 30px rgba(10,79,168,0.08);
-    }
-
-    .map-box iframe {
-      width: 100%; height: 100%; min-height: 400px;
-      border: none;
-      display: block;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.6);
+      padding-top: 2rem;
+      border-top: 1px solid rgba(230, 57, 70, 0.2);
       text-align: center;
-      padding: 2.5rem 5%;
-      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1rem;
     }
 
-    footer strong { color: var(--accent); }
-
-    footer .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      color: var(--white);
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
-
-    footer .footer-logo span { color: var(--accent); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 4%; }
-      .nav-links { display: none; }
-
-      #home { padding: 120px 4% 80px; }
-      .hero-tyre { width: 280px; height: 280px; right: -60px; }
-
-      #about {
-        grid-template-columns: 1fr;
-        padding: 60px 5%;
-        max-width: 100%;
+    /* Responsive */
+    @media (max-width: 968px) {
+      .nav-menu {
+        display: none;
       }
-      .about-badge-float { bottom: 10px; right: 10px; }
 
-      .contact-wrap { grid-template-columns: 1fr; }
-      .map-box iframe { min-height: 300px; }
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      .speedometer {
+        width: 500px;
+        height: 500px;
+        right: -250px;
+      }
     }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <div class="tyre-icon"></div>
-    FAIZA <span>&nbsp;TYRE</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="home">
-  <div class="hero-tyre"></div>
-  <div class="hero-content">
-    <div class="hero-badge">⭐ Rated 4.8 / 5 — Kinniya's Trusted Tyre Shop</div>
-    <h1 class="hero-title">FAIZA<br><span>TYRE</span><br>HOUSE</h1>
-    <p class="hero-sub">Your trusted destination for premium tyre sales, expert tyre repair, and nitrogen air filling — right in the heart of Kinniya, Sri Lanka.</p>
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">Our Services</a>
-      <a href="#contact" class="btn-outline">Find Us</a>
+  <nav>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <div class="logo-text">FAIZA TYRE HOUSE</div>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">4.8★</div>
-        <div class="stat-label">Customer Rating</div>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#performance">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+   
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="speedometer"></div>
+    <div class="hero-content">
+      <div class="hero-label">
+        KINNIYA'S PREMIER AUTO CARE CENTER
       </div>
-      <div class="stat-item">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Services</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">6AM</div>
-        <div class="stat-label">Opens Daily</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Our <span>Services</span></h2>
-    <p class="section-desc">We provide quality tyre services at affordable prices. Whatever your vehicle needs — we've got you covered.</p>
-  </div>
-  <div class="services-grid">
-
-    <div class="service-card">
-      <div class="service-icon">🛞</div>
-      <div class="service-name">Tyre Sales</div>
-      <p class="service-desc">We stock a wide range of tyres for motorcycles, cars, vans, and heavy vehicles. Quality brands at the most competitive prices in Kinniya.</p>
-      <span class="service-tag">All Vehicle Types</span>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">🔧</div>
-      <div class="service-name">Tyre Repair</div>
-      <p class="service-desc">Fast and reliable tyre puncture repairs. Our experienced team handles all types of tyre damage to get you back on the road quickly and safely.</p>
-      <span class="service-tag">Quick Turnaround</span>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">💨</div>
-      <div class="service-name">N2 Air Filling</div>
-      <p class="service-desc">Professional nitrogen (N2) air filling for all vehicles. Nitrogen maintains tyre pressure longer, improves fuel efficiency, and extends tyre life.</p>
-      <span class="service-tag">Affordable Price</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" style="padding:90px 5%;">
-  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
-    <div class="about-visual">
-      <div class="about-img-box">
-        <div class="about-big-tyre">🛞</div>
-        <div class="about-text-over">
-          <div class="big-num">4.8</div>
-          <div class="big-label">★ Google Rating</div>
+      <h1>
+        PERFORMANCE<br>
+        <span class="highlight">MEETS PRECISION</span>
+      </h1>
+      <p class="hero-desc">
+        Elite tyre solutions engineered for excellence. Premium sales, expert repairs, and advanced N₂ filling technology—delivering unmatched automotive performance in Kinniya.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-box">
+          <div class="stat-num">4.8★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">N₂</div>
+          <div class="stat-label">Air Filling</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6AM</div>
+          <div class="stat-label">Opens Daily</div>
         </div>
       </div>
-      <div class="about-badge-float">
-        <div class="n">N₂</div>
-        <div class="l">Air Filling<br>Available</div>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-outline">Find Location</a>
       </div>
     </div>
+  </section>
 
-    <div class="about-text">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">Kinniya's <span>Trusted</span> Tyre Expert</h2>
-      <p class="section-desc">Faiza Tyre House is a well-established tyre shop located on Tampalakamam-Kinniyai Road, Kinniya, Sri Lanka. We are known for our honest service, reasonable pricing, and the dedication we bring to every customer.</p>
-      <ul class="about-list">
-        <li>
-          <span class="check">
-            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-          </span>
-          Serving the Kinniya community with quality and care
-        </li>
-        <li>
-          <span class="check">
-            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-          </span>
-          Affordable and transparent pricing — no hidden charges
-        </li>
-        <li>
-          <span class="check">
-            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-          </span>
-          Nitrogen air filling available for all vehicle types
-        </li>
-        <li>
-          <span class="check">
-            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-          </span>
-          Highly rated by customers — 4.8 stars on Google
-        </li>
-        <li>
-          <span class="check">
-            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-          </span>
-          Open 6 days a week from 6:00 AM to 6:00 PM
-        </li>
-      </ul>
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-tag">PREMIUM AUTOMOTIVE SOLUTIONS</div>
+      <h2>OUR SERVICES</h2>
+      <p class="section-subtitle">
+        Cutting-edge automotive care powered by expertise, precision, and passion for performance
+      </p>
     </div>
-  </div>
-</section>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon-box">🏁</div>
+        <h3 class="service-title">Premium Tyre Sales</h3>
+        <p class="service-desc">
+          Extensive inventory of high-performance tyres from world-leading manufacturers. Engineered for every vehicle class and driving condition.
+        </p>
+        <ul class="service-features">
+          <li>Motorcycles to Heavy Vehicles</li>
+          <li>Top International Brands</li>
+          <li>Competitive Market Pricing</li>
+          <li>Expert Selection Guidance</li>
+        </ul>
+        <span class="service-badge">All Vehicle Types</span>
+      </div>
 
-<!-- WHY CHOOSE US -->
-<section id="why">
-  <div class="section-label">Why Faiza?</div>
-  <h2 class="section-title">Why <span>Choose Us</span></h2>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">💰</div>
-      <div class="why-title">Cheapest Price</div>
-      <p class="why-desc">We offer the most competitive rates in the Kinniya area without compromising on quality.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">⚡</div>
-      <div class="why-title">Fast Service</div>
-      <p class="why-desc">We respect your time. Most repairs and services are completed quickly so you're back on the road fast.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🏆</div>
-      <div class="why-title">Top Rated</div>
-      <p class="why-desc">Our 4.8-star Google rating reflects the trust and satisfaction of our loyal customers.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🌿</div>
-      <div class="why-title">N2 Advantage</div>
-      <p class="why-desc">Nitrogen filling keeps your tyres at optimal pressure longer, improving safety and fuel economy.</p>
-    </div>
-  </div>
-</section>
+      <div class="service-card">
+        <div class="service-icon-box">⚙️</div>
+        <h3 class="service-title">Expert Tyre Repair</h3>
+        <p class="service-desc">
+          Professional puncture repair and restoration services utilizing advanced techniques and OEM-grade materials for maximum safety.
+        </p>
+        <ul class="service-features">
+          <li>Advanced Repair Technology</li>
+          <li>Quality Guaranteed Work</li>
+          <li>Fast Turnaround Time</li>
+          <li>Safety Inspection Included</li>
+        </ul>
+        <span class="service-badge">Same-Day Service</span>
+      </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div style="max-width:1100px; margin:0 auto;">
-    <div class="section-label">Find Us</div>
-    <h2 class="section-title">Contact &amp; <span>Location</span></h2>
-    <div class="contact-wrap">
+      <div class="service-card">
+        <div class="service-icon-box">💨</div>
+        <h3 class="service-title">N₂ Air Filling</h3>
+        <p class="service-desc">
+          State-of-the-art nitrogen inflation system for enhanced tyre performance, longevity, and optimal pressure retention.
+        </p>
+        <ul class="service-features">
+          <li>Extended Tyre Lifespan</li>
+          <li>Improved Fuel Efficiency</li>
+          <li>Better Pressure Stability</li>
+          <li>Reduced Oxidation</li>
+        </ul>
+        <span class="service-badge">Eco-Technology</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="performance" id="performance">
+    <div class="section-header">
+      <div class="section-tag">THE FAIZA ADVANTAGE</div>
+      <h2>ENGINEERED FOR EXCELLENCE</h2>
+      <p class="section-subtitle">
+        Precision service delivery backed by cutting-edge technology and unwavering commitment to quality
+      </p>
+    </div>
+    <div class="performance-grid">
+      <div class="perf-card">
+        <div class="perf-icon">💰</div>
+        <h3 class="perf-title">Best Value</h3>
+        <p class="perf-desc">Unbeatable pricing without compromising quality or service excellence</p>
+      </div>
+      <div class="perf-card">
+        <div class="perf-icon">⚡</div>
+        <h3 class="perf-title">Rapid Service</h3>
+        <p class="perf-desc">Streamlined processes ensure minimal downtime and maximum efficiency</p>
+      </div>
+      <div class="perf-card">
+        <div class="perf-icon">🏆</div>
+        <h3 class="perf-title">Certified Experts</h3>
+        <p class="perf-desc">Skilled technicians with extensive automotive industry experience</p>
+      </div>
+      <div class="perf-card">
+        <div class="perf-icon">🔬</div>
+        <h3 class="perf-title">Advanced Tech</h3>
+        <p class="perf-desc">Modern equipment and innovative solutions for superior results</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" style="background: var(--darker);">
+    <div class="section-header">
+      <div class="section-tag">CUSTOMER TESTIMONIALS</div>
+      <h2>WHAT THEY SAY</h2>
+      <p class="section-subtitle">
+        Real feedback from satisfied customers who trust Faiza Tyre House
+      </p>
+    </div>
+    <div class="services-grid" style="max-width: 1200px;">
+      <div class="service-card">
+        <div style="color: var(--yellow); font-size: 2rem; margin-bottom: 1rem;">★★★★★</div>
+        <p class="service-desc" style="font-size: 1.15rem; font-style: italic; margin-bottom: 1.5rem;">
+          "Here we could fill N2 air for all vehicles. Affordable reasonable price for all kinds of work"
+        </p>
+        <div style="color: rgba(255, 255, 255, 0.5); font-size: 0.95rem;">— Google Review</div>
+      </div>
+      <div class="service-card">
+        <div style="color: var(--yellow); font-size: 2rem; margin-bottom: 1rem;">★★★★★</div>
+        <p class="service-desc" style="font-size: 1.15rem; font-style: italic; margin-bottom: 1.5rem;">
+          "Very good service and cheapest price"
+        </p>
+        <div style="color: rgba(255, 255, 255, 0.5); font-size: 0.95rem;">— Google Review</div>
+      </div>
+      <div class="service-card">
+        <div style="color: var(--yellow); font-size: 2rem; margin-bottom: 1rem;">★★★★★</div>
+        <p class="service-desc" style="font-size: 1.15rem; font-style: italic; margin-bottom: 1.5rem;">
+          "Good service and cheapest price 😊"
+        </p>
+        <div style="color: rgba(255, 255, 255, 0.5); font-size: 0.95rem;">— Google Review</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <div class="section-tag">GET IN TOUCH</div>
+      <h2>VISIT OUR FACILITY</h2>
+      <p class="section-subtitle">
+        Located at the heart of Kinniya's automotive district—ready to serve your vehicle needs
+      </p>
+    </div>
+    <div class="contact-grid">
       <div class="contact-info">
-
         <div class="info-card">
-          <div class="info-icon">📍</div>
-          <div>
-            <div class="info-label">Address</div>
-            <div class="info-value">Tampalakamam-Kinniyai Rd,<br>Kinniya, Sri Lanka</div>
+          <div class="info-header">
+            <div class="info-icon">📍</div>
+            <div class="info-label">Location</div>
+          </div>
+          <div class="info-value">
+            F5M9+3MX, Tampalakamam-Kinniyai Rd<br>
+            Kinniya, Sri Lanka
           </div>
         </div>
 
         <div class="info-card">
-          <div class="info-icon">📞</div>
-          <div>
+          <div class="info-header">
+            <div class="info-icon">📞</div>
             <div class="info-label">Phone</div>
-            <div class="info-value"><a href="tel:+94774665366">+94 77 466 5366</a></div>
+          </div>
+          <div class="info-value">
+            <a href="tel:+94774665366">+94 77 466 5366</a>
           </div>
         </div>
 
         <div class="info-card">
-          <div class="info-icon">🕐</div>
-          <div>
-            <div class="info-label">Opening Hours</div>
-            <div class="hours-grid">
-              <div class="hour-row"><span>Monday</span><span class="open">6:00 AM – 6:00 PM</span></div>
-              <div class="hour-row"><span>Tuesday</span><span class="open">6:00 AM – 6:00 PM</span></div>
-              <div class="hour-row"><span>Wednesday</span><span class="open">6:00 AM – 6:00 PM</span></div>
-              <div class="hour-row"><span>Thursday</span><span class="open">6:00 AM – 6:00 PM</span></div>
-              <div class="hour-row"><span>Friday</span><span class="closed">Closed</span></div>
-              <div class="hour-row"><span>Saturday</span><span class="open">6:00 AM – 6:00 PM</span></div>
-              <div class="hour-row"><span>Sunday</span><span class="open">6:00 AM – 6:00 PM</span></div>
+          <div class="info-header">
+            <div class="info-icon">🕐</div>
+            <div class="info-label">Operating Hours</div>
+          </div>
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="day">Monday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Tuesday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Wednesday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Thursday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Friday</span>
+              <span class="closed">CLOSED</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Saturday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Sunday</span>
+              <span class="time">06:00 AM – 06:00 PM</span>
             </div>
           </div>
         </div>
-
       </div>
 
-      <div class="map-box">
+      <div class="map-container">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.!2d81.1692255!3d8.4827294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afba34d228a80e9%3A0x7c4ecdcd22d99a61!2sFaiza%20tyre%20house!5e0!3m2!1sen!2slk!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.8547896547896!2d81.16704!3d8.4827294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afba34d228a80e9%3A0x7c4ecdcd22d99a61!2sFaiza%20tyre%20house!5e0!3m2!1sen!2slk!4v1739000000000!5m2!1sen!2slk"
           allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
+          loading="lazy">
         </iframe>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">FAIZA <span>TYRE</span> HOUSE</div>
-  <p>Tampalakamam-Kinniyai Rd, Kinniya, Sri Lanka &nbsp;|&nbsp; <a href="tel:+94774665366" style="color:var(--accent);">+94 77 466 5366</a></p>
-  <p style="margin-top:0.75rem;">© 2025 Faiza Tyre House. All rights reserved.</p>
-</footer>
-
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-logo-circle"></div>
+          <div class="footer-brand-text">FAIZA TYRE HOUSE</div>
+        </div>
+        <p class="footer-desc">
+          Faiza Tyre House, delivering excellence in tyre sales, repairs, and nitrogen filling services with a 4.8-star Google rating.
+        </p>
+        <p class="footer-desc" style="margin-top: 1rem;">
+          📞 <a href="tel:+94774665366" style="color: var(--red); text-decoration: none;">+94 77 466 5366</a>
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#performance">Why Choose Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Tyre Sales</a></li>
+          <li><a href="#services">Tyre Repair</a></li>
+          <li><a href="#services">N₂ Air Filling</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Faiza Tyre House. All Rights Reserved. | Engineered for Performance
+    </div>
+  </footer>
 </body>
 </html>
